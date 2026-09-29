@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SwagCraft — Bespoke Company Merch Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<style>
+  :root {
+    /* Google Material 3 System Colors (Google Baseline Blue) */
+    --md-sys-color-primary: #0B57D0;
+    --md-sys-color-on-primary: #FFFFFF;
+    --md-sys-color-primary-container: #D3E3FD;
+    --md-sys-color-on-primary-container: #041E49;
+    --md-sys-color-primary-hover: #0842A0;
+
+    --md-sys-color-secondary: #00639B;
+    --md-sys-color-on-secondary: #FFFFFF;
+    --md-sys-color-secondary-container: #C2E7FF;
+    --md-sys-color-on-secondary-container: #001D35;
+
+    --md-sys-color-surface: #F8F9FA;
+    --md-sys-color-surface-dim: #DDE2EB;
+    --md-sys-color-surface-bright: #FFFFFF;
+    --md-sys-color-surface-container-lowest: #FFFFFF;
+    --md-sys-color-surface-container-low: #F0F4F9;
+    --md-sys-color-surface-container: #E9EEF6;
+    --md-sys-color-surface-container-high: #E0E6EE;
+    --md-sys-color-surface-container-highest: #D5DBE4;
+
+    --md-sys-color-on-surface: #1F1F1F;
+    --md-sys-color-on-surface-variant: #444746;
+    --md-sys-color-outline: #747775;
+    --md-sys-color-outline-variant: #C4C7C5;
+
+    /* Material 3 Shapes */
+    --md-shape-xs: 4px;
+    --md-shape-s: 8px;
+    --md-shape-m: 12px;
+    --md-shape-l: 16px;
+    --md-shape-xl: 24px;
+    --md-shape-full: 9999px;
+
+    /* Material 3 Elevations */
+    --md-sys-elevation-1: 0 1px 3px 1px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
+    --md-sys-elevation-2: 0 2px 6px 2px rgba(0, 0, 0, 0.15), 0 1px 2px 0 rgba(0, 0, 0, 0.30);
+    --md-sys-elevation-3: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px 0 rgba(0, 0, 0, 0.30);
+
+    /* Material 3 Standard Motion Easing */
+    --md-sys-motion-standard: cubic-bezier(0.2, 0, 0, 1);
+    --md-sys-motion-duration: 200ms;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+    line-height: 1;
+    display: inline-block;
+  }
+
+  body {
+    font-family: 'Roboto', 'Google Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+
+  /* Main Container */
+  main {
+    width: 100%;
+    margin: 0 auto;
+    padding: 3.5rem 0 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero, .studio-form {
+    max-width: 760px;
+    width: calc(100% - 3rem);
+    margin: 0 auto;
+  }
+
+  /* Hero Section (Material 3 Type Scale) */
+  .hero {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+  }
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--md-sys-color-on-secondary-container);
+    background: var(--md-sys-color-secondary-container);
+    padding: 0.35rem 0.95rem;
+    border-radius: var(--md-shape-s);
+    margin-bottom: 0.2rem;
+  }
+  .hero-title {
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+    font-size: 3.2rem;
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.1;
+    color: var(--md-sys-color-on-surface);
+  }
+  .hero-sub {
+    font-size: 1.15rem;
+    color: var(--md-sys-color-on-surface-variant);
+    line-height: 1.5;
+    font-weight: 400;
+    max-width: 540px;
+    letter-spacing: -0.01em;
+  }
+
+  /* Clean Vertical Form */
+  .studio-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .field-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .field-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0 0.25rem;
+  }
+  .field-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+  .carousel-hint {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--md-sys-color-primary);
+    background: var(--md-sys-color-primary-container);
+    padding: 0.22rem 0.75rem;
+    border-radius: var(--md-shape-full);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
+  }
+  .carousel-hint.updated {
+    animation: hintPop 0.25s var(--md-sys-motion-standard);
+  }
+  @keyframes hintPop {
+    0% { transform: scale(0.92); opacity: 0.7; }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* Google Material 3 Outlined Text Field */
+  .input-control {
+    width: 100%;
+    background: var(--md-sys-color-surface-container-lowest);
+    border: 1px solid var(--md-sys-color-outline);
+    border-radius: var(--md-shape-s);
+    padding: 1rem 1.25rem;
+    font-size: 1.05rem;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    color: var(--md-sys-color-on-surface);
+    outline: none;
+    transition: all var(--md-sys-motion-duration) var(--md-sys-motion-standard);
+    box-shadow: none;
+  }
+  .input-control:hover {
+    border-color: var(--md-sys-color-on-surface);
+  }
+  .input-control:focus {
+    border-color: var(--md-sys-color-primary);
+    border-width: 2px;
+    padding: calc(1rem - 1px) calc(1.25rem - 1px);
+    box-shadow: none;
+  }
+  .input-control::placeholder {
+    color: var(--md-sys-color-outline);
+    font-weight: 400;
+  }
+
+  /* Carousel Section with Nav Controls */
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  .carousel-track {
+    position: relative;
+    display: flex;
+    gap: 0.9rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 0.6rem 0.25rem 1rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+    user-select: none;
+  }
+  .carousel-track.dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+  }
+  .carousel-track.dragging .carousel-card {
+    pointer-events: none;
+  }
+  .carousel-track::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Google Material 3 Card: Canvas Item */
+  .carousel-card {
+    flex: 0 0 170px;
+    height: 185px;
+    background: var(--md-sys-color-surface-container-lowest);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    border-radius: var(--md-shape-l);
+    padding: 1.25rem 0.85rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65rem;
+    cursor: pointer;
+    transition: all 0.22s var(--md-sys-motion-standard);
+    user-select: none;
+    text-align: center;
+    position: relative;
+  }
+  .carousel-card:hover {
+    border-color: var(--md-sys-color-outline);
+    background: var(--md-sys-color-surface-container-low);
+    box-shadow: var(--md-sys-elevation-1);
+    transform: translateY(-2px);
+  }
+  .carousel-card.active {
+    background: var(--md-sys-color-primary-container);
+    border: 2px solid var(--md-sys-color-primary);
+    box-shadow: 0 4px 16px rgba(11, 87, 208, 0.16), var(--md-sys-elevation-2);
+    transform: translateY(-4px) scale(1.02);
+  }
+  .carousel-card.active::after {
+    content: "check_circle";
+    font-family: 'Material Symbols Outlined';
+    font-size: 20px;
+    position: absolute;
+    top: 9px;
+    right: 9px;
+    color: var(--md-sys-color-primary);
+    line-height: 1;
+    pointer-events: none;
+    animation: badgePop 0.22s var(--md-sys-motion-standard);
+  }
+  @keyframes badgePop {
+    0% { transform: scale(0.3); opacity: 0; }
+    70% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .carousel-card.landed-pop {
+    animation: landedCelebration 0.4s var(--md-sys-motion-standard);
+  }
+  @keyframes landedCelebration {
+    0% { transform: translateY(0) scale(0.96); }
+    40% { transform: translateY(-8px) scale(1.06); }
+    100% { transform: translateY(-4px) scale(1.02); }
+  }
+  .icon-spin {
+    animation: diceSpin 0.5s linear infinite;
+  }
+  @keyframes diceSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .carousel-card.active .item-name {
+    color: var(--md-sys-color-on-primary-container);
+    font-weight: 700;
+  }
+  .carousel-card.active .item-desc {
+    color: var(--md-sys-color-on-primary-container);
+    opacity: 0.9;
+    font-weight: 500;
+  }
+  .carousel-card.active .item-icon {
+    transform: scale(1.14);
+    filter: drop-shadow(0 4px 8px rgba(11, 87, 208, 0.22));
+  }
+
+  .item-icon {
+    font-size: 2.6rem;
+    line-height: 1;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
+    transition: transform 0.2s ease;
+  }
+  .carousel-card:hover .item-icon {
+    transform: scale(1.08);
+  }
+  .item-name {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface);
+    letter-spacing: 0.01em;
+    line-height: 1.25;
+  }
+  .item-desc {
+    font-size: 0.72rem;
+    color: var(--md-sys-color-on-surface-variant);
+    font-weight: 400;
+  }
+
+  /* Google Material 3 Standard Icon Button */
+  .carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--md-shape-full);
+    background: var(--md-sys-color-surface-container-lowest);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    box-shadow: var(--md-sys-elevation-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: var(--md-sys-color-on-surface);
+    z-index: 10;
+    transition: all var(--md-sys-motion-duration) var(--md-sys-motion-standard);
+  }
+  .carousel-arrow:hover {
+    background: var(--md-sys-color-surface-container-high);
+    box-shadow: var(--md-sys-elevation-2);
+  }
+  .carousel-arrow.left { left: -18px; }
+  .carousel-arrow.right { right: -18px; }
+
+  /* Google Material 3 Tonal Button: Surprise Me */
+  .surprise-trigger-wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: -0.25rem;
+  }
+  .surprise-trigger-btn {
+    background: var(--md-sys-color-secondary-container);
+    color: var(--md-sys-color-on-secondary-container);
+    border: none;
+    border-radius: var(--md-shape-full);
+    height: 40px;
+    padding: 0 1.35rem;
+    font-family: 'Roboto', 'Google Sans', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all var(--md-sys-motion-duration) var(--md-sys-motion-standard);
+  }
+  .surprise-trigger-btn:hover {
+    background: #B4E0FE;
+    box-shadow: var(--md-sys-elevation-1);
+  }
+  .surprise-trigger-btn:active {
+    box-shadow: none;
+  }
+  .surprise-trigger-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* Google Material 3 Filled Button: Primary CTA */
+  .cta-primary {
+    width: 100%;
+    height: 52px;
+    border: none;
+    border-radius: var(--md-shape-full);
+    background: var(--md-sys-color-primary);
+    color: var(--md-sys-color-on-primary);
+    font-family: 'Roboto', 'Google Sans', sans-serif;
+    font-size: 0.98rem;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    transition: all var(--md-sys-motion-duration) var(--md-sys-motion-standard);
+    box-shadow: none;
+  }
+  .cta-primary:hover {
+    background: var(--md-sys-color-primary-hover);
+    box-shadow: var(--md-sys-elevation-1);
+  }
+  .cta-primary:active {
+    background: #063177;
+    box-shadow: none;
+  }
+  .cta-primary:disabled {
+    background: rgba(31, 31, 31, 0.12);
+    color: rgba(31, 31, 31, 0.38);
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  /* Showcase Section & Horizontal Gallery */
+  .showcase-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .showcase-section-header {
+    width: 100%;
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .showcase-section-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  .feed-nav-arrows {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-arrow-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--md-shape-full);
+    border: 1px solid var(--md-sys-color-outline-variant);
+    background: var(--md-sys-color-surface-container-lowest);
+    color: var(--md-sys-color-on-surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: var(--md-sys-elevation-1);
+    transition: all var(--md-sys-motion-duration) var(--md-sys-motion-standard);
+  }
+  .nav-arrow-btn:hover {
+    background: var(--md-sys-color-surface-container-high);
+    box-shadow: var(--md-sys-elevation-2);
+  }
+
+  /* Horizontal Feed Track */
+  #feed {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1.75rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 1rem max(2rem, calc((100vw - 1360px) / 2)) 2.5rem;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    min-height: 200px;
+  }
+  #feed::-webkit-scrollbar {
+    height: 8px;
+  }
+  #feed::-webkit-scrollbar-track {
+    background: var(--md-sys-color-surface-container-low);
+    border-radius: var(--md-shape-full);
+    margin: 0 max(2rem, calc((100vw - 1360px) / 2));
+  }
+  #feed::-webkit-scrollbar-thumb {
+    background: var(--md-sys-color-outline-variant);
+    border-radius: var(--md-shape-full);
+  }
+  #feed::-webkit-scrollbar-thumb:hover {
+    background: var(--md-sys-color-outline);
+  }
+
+  /* Material 3 Empty Gallery State */
+  .empty-feed-placeholder {
+    width: 100%;
+    max-width: 680px;
+    margin: 2rem auto;
+    border: 1.5px dashed var(--md-sys-color-outline-variant);
+    border-radius: var(--md-shape-xl);
+    background: var(--md-sys-color-surface-container-lowest);
+    padding: 3.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.9rem;
+    box-shadow: var(--md-sys-elevation-1);
+  }
+  .empty-feed-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--md-shape-full);
+    background: var(--md-sys-color-primary-container);
+    color: var(--md-sys-color-on-primary-container);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.25rem;
+  }
+  .empty-feed-icon .material-symbols-outlined {
+    font-size: 28px;
+  }
+  .empty-feed-title {
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface);
+  }
+  .empty-feed-sub {
+    font-size: 0.92rem;
+    color: var(--md-sys-color-on-surface-variant);
+    max-width: 440px;
+    line-height: 1.5;
+  }
+
+  /* Material 3 Showcase Card: Vertical Presentation (Aspect ~ 9:14) */
+  .showcase-card {
+    flex: 0 0 380px;
+    width: 380px;
+    height: 590px;
+    position: relative;
+    border-radius: var(--md-shape-xl);
+    overflow: hidden;
+    background: #000000;
+    box-shadow: var(--md-sys-elevation-2);
+    transition: transform var(--md-sys-motion-duration) var(--md-sys-motion-standard), box-shadow var(--md-sys-motion-duration) var(--md-sys-motion-standard);
+    animation: slideInCard 0.4s var(--md-sys-motion-standard);
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+  .showcase-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--md-sys-elevation-3);
+  }
+
+  @keyframes slideInCard {
+    from { opacity: 0; transform: translateX(-24px) scale(0.96); }
+    to { opacity: 1; transform: translateX(0) scale(1); }
+  }
+
+  .showcase-media {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #0a0a0c;
+    overflow: hidden;
+  }
+  .showcase-img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center 20%;
+    transition: transform 0.6s var(--md-sys-motion-standard);
+  }
+  .showcase-card:hover .showcase-img {
+    transform: scale(1.05);
+  }
+
+  /* Black Translucent Glass Gradient with Ultra-Soft Feathered Edge */
+  .showcase-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3.5rem 1.4rem 1.4rem;
+    background: linear-gradient(
+      to top,
+      rgba(8, 8, 12, 0.86) 0%,
+      rgba(8, 8, 12, 0.74) 28%,
+      rgba(8, 8, 12, 0.48) 55%,
+      rgba(8, 8, 12, 0.22) 76%,
+      rgba(8, 8, 12, 0.06) 90%,
+      rgba(8, 8, 12, 0) 100%
+    );
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 32%,
+      rgba(0, 0, 0, 0.85) 54%,
+      rgba(0, 0, 0, 0.50) 72%,
+      rgba(0, 0, 0, 0.18) 88%,
+      rgba(0, 0, 0, 0.03) 96%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 32%,
+      rgba(0, 0, 0, 0.85) 54%,
+      rgba(0, 0, 0, 0.50) 72%,
+      rgba(0, 0, 0, 0.18) 88%,
+      rgba(0, 0, 0, 0.03) 96%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border-bottom-left-radius: var(--md-shape-xl);
+    border-bottom-right-radius: var(--md-shape-xl);
+  }
+
+  .showcase-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .showcase-title {
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: #FFFFFF;
+    line-height: 1.25;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Material 3 Assist / Suggestion Chip */
+  .showcase-milestone-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: #FFFFFF;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--md-shape-s);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    width: fit-content;
+    margin-top: 0.1rem;
+    letter-spacing: 0.01em;
+  }
+  .milestone-sparkle {
+    font-size: 0.78rem;
+    line-height: 1;
+  }
+  .milestone-text {
+    line-height: 1.25;
+  }
+
+  /* Clean Left-Aligned Action Bar */
+  .showcase-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-top: 0.2rem;
+    flex-wrap: wrap;
+  }
+
+  /* Google Material 3 Tonal Assist Button on Frosted Glass */
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    height: 36px;
+    padding: 0 1rem;
+    border-radius: var(--md-shape-full);
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    color: #FFFFFF;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all var(--md-sys-motion-duration) var(--md-sys-motion-standard);
+  }
+  .action-btn .material-symbols-outlined {
+    font-size: 18px;
+  }
+  .action-btn:hover {
+    background: rgba(255, 255, 255, 0.28);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: var(--md-sys-elevation-1);
+    transform: translateY(-1px);
+  }
+  .action-btn:active {
+    background: rgba(255, 255, 255, 0.36);
+    transform: translateY(0);
+  }
+
+  /* Material 3 Outlined Loading Card */
+  .loading-card {
+    flex: 0 0 380px;
+    width: 380px;
+    height: 590px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    border-radius: var(--md-shape-xl);
+    background: var(--md-sys-color-surface-container-lowest);
+    border: 1.5px dashed var(--md-sys-color-outline-variant);
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    text-align: center;
+    box-shadow: var(--md-sys-elevation-1);
+    animation: pulse 1.8s ease-in-out infinite alternate;
+  }
+  @keyframes pulse {
+    0% { opacity: 0.75; }
+    100% { opacity: 1; }
+  }
+  .spinner {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--md-shape-full);
+    border: 3.5px solid rgba(11, 87, 208, 0.15);
+    border-top-color: var(--md-sys-color-primary);
+    animation: rotate 0.8s linear infinite;
+  }
+  @keyframes rotate {
+    to { transform: rotate(360deg); }
+  }
+  .loading-text {
+    font-family: 'Google Sans', 'Roboto', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--md-sys-color-on-surface);
+  }
+  .loading-subtext {
+    font-size: 0.88rem;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  /* Google Material 3 Snackbar / Toast Notification */
+  .toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #313033; /* M3 Inverse Surface */
+    color: #F4EFF4; /* M3 Inverse On-Surface */
+    padding: 0.85rem 1.5rem;
+    border-radius: var(--md-shape-xs);
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 400;
+    box-shadow: var(--md-sys-elevation-3);
+    transition: transform var(--md-sys-motion-duration) var(--md-sys-motion-standard);
+    z-index: 1000;
+    pointer-events: none;
+  }
+  .toast.show {
+    transform: translateX(-50%) translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<main>
+  <section class="hero">
+    <div class="brand-badge"><span class="material-symbols-outlined" style="font-size: 16px;">auto_awesome</span> SwagCraft Studio · Track 3</div>
+    <h1 class="hero-title">Custom company merch.</h1>
+    <p class="hero-sub">Identity meets physical craft. Tailored for culture, made in seconds.</p>
+  </section>
+
+  <!-- Clean Vertical Form -->
+  <section class="studio-form">
+    <div class="field-block">
+      <div class="field-header">
+        <label class="field-label" for="companyInput">Company Name</label>
+      </div>
+      <input class="input-control" id="companyInput" type="text" placeholder="Enter company (e.g. Spotify, Figma, Stripe, GitHub)…" autocomplete="off" autofocus>
+    </div>
+
+    <!-- Tactile Carousel Section -->
+    <div class="field-block">
+      <div class="field-header">
+        <label class="field-label">Select Canvas</label>
+        <span class="carousel-hint" id="selectedLabel">Steel Water Bottle</span>
+      </div>
+
+      <div class="carousel-wrapper">
+        <button class="carousel-arrow left" onclick="scrollCarousel(-1)" aria-label="Previous"><span class="material-symbols-outlined">chevron_left</span></button>
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-card active" data-item="custom steel water bottle" data-name="Steel Water Bottle">
+            <span class="item-icon">💧</span>
+            <span class="item-name">Steel Bottle</span>
+            <span class="item-desc">Double-wall thermal</span>
+          </div>
+          <div class="carousel-card" data-item="heavyweight hoodie" data-name="Heavyweight Hoodie">
+            <span class="item-icon">👕</span>
+            <span class="item-name">Heavy Hoodie</span>
+            <span class="item-desc">450 GSM French terry</span>
+          </div>
+          <div class="carousel-card" data-item="chore work jacket" data-name="Canvas Chore Jacket">
+            <span class="item-icon">🧥</span>
+            <span class="item-name">Work Jacket</span>
+            <span class="item-desc">14oz duck & corduroy</span>
+          </div>
+          <div class="carousel-card" data-item="custom mechanical keyboard" data-name="Custom Mechanical Keyboard">
+            <span class="item-icon">⌨️</span>
+            <span class="item-name">Custom Keyboard</span>
+            <span class="item-desc">PBT keys & aluminum</span>
+          </div>
+          <div class="carousel-card" data-item="wireless over-ear headphones" data-name="Studio Wireless Headphones">
+            <span class="item-icon">🎧</span>
+            <span class="item-name">Studio Headphones</span>
+            <span class="item-desc">Anodized metal & leather</span>
+          </div>
+          <div class="carousel-card" data-item="embroidered corduroy cap" data-name="Corduroy Cap">
+            <span class="item-icon">🧢</span>
+            <span class="item-name">Corduroy Cap</span>
+            <span class="item-desc">Direct-stitched profile</span>
+          </div>
+          <div class="carousel-card" data-item="ceramic artisan coffee mug" data-name="Artisan Ceramic Mug">
+            <span class="item-icon">☕</span>
+            <span class="item-name">Artisan Mug</span>
+            <span class="item-desc">Matte stoneware</span>
+          </div>
+          <div class="carousel-card" data-item="heavy canvas tote bag" data-name="Canvas Tote Bag">
+            <span class="item-icon">👜</span>
+            <span class="item-name">Canvas Tote</span>
+            <span class="item-desc">Reinforced 16oz cotton</span>
+          </div>
+          <div class="carousel-card" data-item="magnetic wireless power bank" data-name="Magnetic Power Bank">
+            <span class="item-icon">🔋</span>
+            <span class="item-name">Magnetic Battery</span>
+            <span class="item-desc">MagSafe 10,000mAh alloy</span>
+          </div>
+          <div class="carousel-card" data-item="hardcover dot-grid notebook" data-name="Linen Hardcover Journal">
+            <span class="item-icon">📖</span>
+            <span class="item-name">Linen Journal</span>
+            <span class="item-desc">120 GSM foil-stamped</span>
+          </div>
+        </div>
+        <button class="carousel-arrow right" onclick="scrollCarousel(1)" aria-label="Next"><span class="material-symbols-outlined">chevron_right</span></button>
+      </div>
+
+      <!-- Surprise Me Spin Button (Directly Beneath Carousel) -->
+      <div class="surprise-trigger-wrap">
+        <button class="surprise-trigger-btn" id="spinBtn" onclick="spinCarousel()">
+          <span class="material-symbols-outlined" style="font-size: 20px;">casino</span>
+          <span>Surprise Me & Spin</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Primary Craft CTA Button -->
+    <button class="cta-primary" id="craftBtn" onclick="handleGenerate()">
+      <span class="material-symbols-outlined" style="font-size: 20px;">auto_awesome</span>
+      <span>Craft Swag</span>
+      <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+    </button>
+  </section>
+
+  <!-- Horizontal Showcase Gallery -->
+  <section class="showcase-section">
+    <div class="showcase-section-header">
+      <span class="showcase-section-title">Crafted Gallery</span>
+      <div class="feed-nav-arrows">
+        <button class="nav-arrow-btn" onclick="scrollFeed(-1)" title="Scroll left"><span class="material-symbols-outlined">chevron_left</span></button>
+        <button class="nav-arrow-btn" onclick="scrollFeed(1)" title="Scroll right"><span class="material-symbols-outlined">chevron_right</span></button>
+      </div>
+    </div>
+    <div id="feed"></div>
+  </section>
+</main>
+
+<div class="toast" id="toast">Link copied to clipboard</div>
+
+<script>
+const feed = document.getElementById("feed");
+const companyInput = document.getElementById("companyInput");
+const carouselTrack = document.getElementById("carouselTrack");
+const selectedLabel = document.getElementById("selectedLabel");
+const craftBtn = document.getElementById("craftBtn");
+const spinBtn = document.getElementById("spinBtn");
+const toast = document.getElementById("toast");
+let currentSessionId = null;
+let selectedCategory = "custom steel water bottle";
+let isSpinning = false;
+
+// Card Selection & Smooth Center Positioning
+const cards = Array.from(carouselTrack.querySelectorAll(".carousel-card"));
+
+function centerCard(card, behavior = 'smooth') {
+  if (!card || !carouselTrack) return;
+  const cardLeft = card.offsetLeft;
+  const cardWidth = card.offsetWidth;
+  const trackWidth = carouselTrack.clientWidth;
+  const targetScroll = cardLeft - (trackWidth / 2) + (cardWidth / 2);
+  carouselTrack.scrollTo({
+    left: Math.max(0, targetScroll),
+    behavior: behavior
+  });
+}
+
+function selectCard(card, scrollIntoCenter = true) {
+  cards.forEach(c => {
+    c.classList.remove("active", "spinning", "landed-pop");
+  });
+  card.classList.add("active");
+  selectedCategory = card.dataset.item;
+  
+  // Update header pill badge with micro-pop
+  selectedLabel.textContent = card.dataset.name;
+  selectedLabel.classList.remove("updated");
+  void selectedLabel.offsetWidth; // Trigger reflow for animation
+  selectedLabel.classList.add("updated");
+
+  if (scrollIntoCenter) {
+    centerCard(card, 'smooth');
+  }
+}
+
+// Looping Arrow Navigation: previous & next cycle smoothly around catalog
+function scrollCarousel(dir) {
+  if (isSpinning) return;
+  const currentIndex = cards.findIndex(c => c.classList.contains("active"));
+  let nextIndex;
+  if (dir > 0) {
+    nextIndex = (currentIndex + 1) % cards.length;
+  } else {
+    nextIndex = (currentIndex - 1 + cards.length) % cards.length;
+  }
+  selectCard(cards[nextIndex], true);
+}
+
+// Click and Drag-to-Scroll Support
+let isDragging = false;
+let startX = 0;
+let scrollLeftVal = 0;
+let hasDragged = false;
+
+carouselTrack.addEventListener('mousedown', (e) => {
+  if (isSpinning) return;
+  isDragging = true;
+  hasDragged = false;
+  carouselTrack.classList.add('dragging');
+  startX = e.pageX - carouselTrack.offsetLeft;
+  scrollLeftVal = carouselTrack.scrollLeft;
+});
+
+window.addEventListener('mouseup', () => {
+  if (!isDragging) return;
+  isDragging = false;
+  carouselTrack.classList.remove('dragging');
+});
+
+carouselTrack.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+  const x = e.pageX - carouselTrack.offsetLeft;
+  const walk = (x - startX);
+  if (Math.abs(walk) > 4) {
+    hasDragged = true;
+    carouselTrack.scrollLeft = scrollLeftVal - walk;
+  }
+});
+
+cards.forEach(card => {
+  card.addEventListener("click", () => {
+    if (isSpinning || hasDragged) return;
+    selectCard(card, true);
+  });
+});
+
+// Clean Roulette Spin Loop Animation
+function spinCarousel() {
+  if (isSpinning) return;
+  isSpinning = true;
+  spinBtn.disabled = true;
+
+  const diceIcon = spinBtn.querySelector(".material-symbols-outlined");
+  if (diceIcon) diceIcon.classList.add("icon-spin");
+
+  const currentIdx = cards.findIndex(c => c.classList.contains("active"));
+  let targetIdx;
+  do {
+    targetIdx = Math.floor(Math.random() * cards.length);
+  } while (targetIdx === currentIdx && cards.length > 1);
+
+  // Complete 2 full loops + distance to target
+  const totalSteps = (cards.length * 2) + ((targetIdx - currentIdx + cards.length) % cards.length);
+  let step = 0;
+
+  function runSpinStep() {
+    const cardIdx = (currentIdx + step) % cards.length;
+    cards.forEach(c => c.classList.remove("active", "spinning"));
+    cards[cardIdx].classList.add("active");
+    selectedLabel.textContent = cards[cardIdx].dataset.name;
+
+    // Smoothly track as it steps
+    centerCard(cards[cardIdx], step > totalSteps - 6 ? 'smooth' : 'auto');
+
+    step++;
+    if (step <= totalSteps) {
+      // Clean deceleration curve: rapid during loop, smooth easing on final 6 steps
+      const remaining = totalSteps - step;
+      let delay = 50;
+      if (remaining <= 5) {
+        const slowDelays = [480, 320, 200, 130, 90, 70];
+        delay = slowDelays[remaining] || 60;
+      }
+      setTimeout(runSpinStep, delay);
+    } else {
+      // Landed cleanly
+      if (diceIcon) diceIcon.classList.remove("icon-spin");
+      selectCard(cards[targetIdx], true);
+      cards[targetIdx].classList.add("landed-pop");
+      isSpinning = false;
+      spinBtn.disabled = false;
+      showToast(`Selected: ${cards[targetIdx].dataset.name}!`);
+    }
+  }
+
+  runSpinStep();
+}
+
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2200);
+}
+
+function boundStr(v) {
+  if (v == null) return "";
+  if (typeof v === "string") return v;
+  if (typeof v.literalString === "string") return v.literalString;
+  return "";
+}
+
+// Curated Pure Vector SVG Logos for Top Tech Brands
+const BRAND_SVG_MAP = {
+  "spotify": {
+    color: "#1DB954",
+    svg: `<svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>`
+  },
+  "figma": {
+    color: "#F24E1E",
+    svg: `<svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 1 8 0 4 4 0 0 1-8 0zm-8 4a4 4 0 0 1 4-4h4v4a4 4 0 0 1-4 4 4 4 0 0 1-4-4zm0-8a4 4 0 0 1 4-4h4v4H8a4 4 0 0 1-4-4zm8-4h4a4 4 0 1 1 0 8h-4V4zm-4 12a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4v-4H8z"/></svg>`
+  },
+  "github": {
+    color: "#2EA44F",
+    svg: `<svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>`
+  },
+  "stripe": {
+    color: "#635BFF",
+    svg: `<svg viewBox="0 0 24 24"><path d="M13.976 9.15c-2.172-.806-3.356-1.426-3.356-2.409 0-.831.683-1.305 1.901-1.305 2.227 0 4.515.858 6.09 1.631l.89-5.494C18.252.975 15.697 0 12.165 0 9.667 0 7.589.654 6.104 1.872 4.56 3.147 3.757 4.992 3.757 7.218c0 4.039 2.467 5.76 6.476 7.219 2.585.92 3.445 1.574 3.445 2.583 0 .98-.84 1.545-2.354 1.545-1.875 0-4.965-.921-6.99-2.109l-.9 5.555C5.175 22.787 8.04 24 11.333 24c2.61 0 4.75-.656 6.274-1.882 1.608-1.297 2.44-3.15 2.44-5.43 0-4.225-2.52-5.835-6.071-7.538z"/></svg>`
+  },
+  "google": {
+    color: "#4285F4",
+    svg: `<svg viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>`
+  },
+  "deepmind": {
+    color: "#4285F4",
+    svg: `<svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 4c4.41 0 8 3.59 8 8s-3.59 8-8 8-8-3.59-8-8 3.59-8 8-8zm-2 4v8l6-4-6-4z"/></svg>`
+  },
+  "google deepmind": {
+    color: "#4285F4",
+    svg: `<svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm0 4c4.41 0 8 3.59 8 8s-3.59 8-8 8-8-3.59-8-8 3.59-8 8-8zm-2 4v8l6-4-6-4z"/></svg>`
+  },
+  "apple": {
+    color: "#0071E3",
+    svg: `<svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.16c.65-.8 1.09-1.92.97-3.04-.94.04-2.07.63-2.73 1.41-.58.68-1.09 1.77-.95 2.86 1.04.08 2.07-.47 2.71-1.23z"/></svg>`
+  },
+  "slack": {
+    color: "#4A154B",
+    svg: `<svg viewBox="0 0 24 24"><path d="M5.042 15.165a2.528 2.528 0 0 1-2.52 2.523A2.528 2.528 0 0 1 0 15.165a2.527 2.527 0 0 1 2.522-2.52h2.52v2.52zM6.313 15.165a2.527 2.527 0 0 1 2.521-2.52 2.527 2.527 0 0 1 2.521 2.52v6.313A2.528 2.528 0 0 1 8.834 24a2.528 2.528 0 0 1-2.521-2.522v-6.313zM8.834 5.042a2.528 2.528 0 0 1-2.521-2.52A2.528 2.528 0 0 1 8.834 0a2.528 2.528 0 0 1 2.521 2.522v2.52H8.834zM8.834 6.313a2.528 2.528 0 0 1 2.521 2.521 2.528 2.528 0 0 1-2.521 2.521H2.522A2.528 2.528 0 0 1 0 8.834a2.528 2.528 0 0 1 2.522-2.521h6.312zM18.956 8.834a2.528 2.528 0 0 1 2.522-2.521A2.528 2.528 0 0 1 24 8.834a2.528 2.528 0 0 1-2.522 2.521h-2.522V8.834zM17.688 8.834a2.528 2.528 0 0 1-2.523 2.521 2.527 2.527 0 0 1-2.52-2.521V2.522A2.527 2.527 0 0 1 15.165 0a2.528 2.528 0 0 1 2.523 2.522v6.312zM15.165 18.956a2.528 2.528 0 0 1 2.523 2.522A2.528 2.528 0 0 1 15.165 24a2.527 2.527 0 0 1-2.52-2.522v-2.522h2.52zM15.165 17.688a2.527 2.527 0 0 1-2.52-2.523 2.526 2.526 0 0 1 2.52-2.52h6.313A2.527 2.527 0 0 1 24 15.165a2.528 2.528 0 0 1-2.522 2.523h-6.313z"/></svg>`
+  },
+  "airbnb": {
+    color: "#FF5A5F",
+    svg: `<svg viewBox="0 0 24 24"><path d="M12 0C5.8 0 4 4.5 4 8c0 4.6 4.7 9.8 8 16 3.3-6.2 8-11.4 8-16 0-3.5-1.8-8-8-8zm0 18.5c-2.3-3.9-5-7.7-5-10.5 0-2.4 1.1-4.5 4-4.5s4 2.1 4 4.5c0 2.8-2.7 6.6-5 10.5zm0-13c-1.4 0-2.5 1.1-2.5 2.5S10.6 10.5 12 10.5s2.5-1.1 2.5-2.5S13.4 5.5 12 5.5z"/></svg>`
+  }
+};
+
+function resolveBrand(companyName, rawTagline) {
+  const norm = companyName.toLowerCase().trim();
+  let color = null;
+  let svgLogo = null;
+
+  if (BRAND_SVG_MAP[norm]) {
+    color = BRAND_SVG_MAP[norm].color;
+    svgLogo = BRAND_SVG_MAP[norm].svg;
+  }
+
+  if (rawTagline) {
+    const hexMatch = rawTagline.match(/#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})/);
+    if (hexMatch && !color) {
+      color = hexMatch[0];
+    }
+  }
+
+  return {
+    color: color || "#38BDF8",
+    svgLogo
+  };
+}
+
+function parseA2UI(messages) {
+  const comps = {};
+  for (const m of messages) {
+    const su = m.surfaceUpdate;
+    if (su && Array.isArray(su.components)) {
+      for (const c of su.components) {
+        if (c && c.id && c.component) {
+          comps[c.id] = c.component;
+        }
+      }
+    }
+  }
+
+  let title = "";
+  let tagline = "";
+  let description = "";
+  let imageUrl = "";
+
+  for (const [id, spec] of Object.entries(comps)) {
+    const type = Object.keys(spec)[0];
+    const props = spec[type] || {};
+
+    if (type === "Text") {
+      const hint = String(props.usageHint || "").toLowerCase();
+      const text = boundStr(props.text);
+      if (hint === "h1" || hint === "h2" || id.includes("title")) {
+        title = text;
+      } else if (hint === "caption" || id.includes("tagline")) {
+        tagline = text;
+      } else if (hint === "body" || id.includes("desc") || id.includes("description") || id.includes("story")) {
+        description = text;
+      }
+    } else if (type === "Image") {
+      const url = boundStr(props.url || props.src);
+      if (/^https?:\/\//i.test(url)) {
+        imageUrl = url;
+      }
+    }
+  }
+
+  return { title, tagline, description, imageUrl };
+}
+
+function sendToBoss(title, url) {
+  const shareText = `Hey boss, check out this custom merch concept for our team: ${title}\n${url}`;
+  if (navigator.share) {
+    navigator.share({ title: `Swag Proposal: ${title}`, text: shareText, url: url }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(`${title} - ${url}`);
+    showToast("Swag link copied to send to your boss!");
+  }
+}
+const shareProduct = sendToBoss;
+
+async function downloadImage(url, filename) {
+  try {
+    showToast("Preparing download…");
+    const resp = await fetch(url);
+    const blob = await resp.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = blobUrl;
+    a.download = `${filename.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.jpg`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(blobUrl);
+    showToast("Download started");
+  } catch (e) {
+    window.open(url, "_blank");
+  }
+}
+
+let isUnloading = false;
+window.addEventListener("beforeunload", () => {
+  isUnloading = true;
+});
+
+function selectCategoryByItem(itemStr) {
+  if (!itemStr) return;
+  const match = cards.find(c => c.dataset.item === itemStr || c.dataset.name.toLowerCase() === itemStr.toLowerCase());
+  if (match) {
+    selectCard(match);
+  }
+}
+
+function regenerateSwag(comp, item) {
+  if (comp) companyInput.value = comp;
+  if (item) selectCategoryByItem(item);
+  handleGenerate();
+}
+
+async function handleGenerate() {
+  const company = companyInput.value.trim();
+  if (!company) {
+    companyInput.focus();
+    return;
+  }
+  companyInput.value = "";
+  
+  let prompt;
+  if (/^(create|design|make|craft|generate|surprise)/i.test(company) || company.toLowerCase().includes("celebrating") || company.toLowerCase().includes("for ")) {
+    prompt = company;
+  } else {
+    prompt = `Create a ${selectedCategory} for ${company} celebrating their latest milestones`;
+  }
+
+  let displayCompany = company;
+  const compMatch = company.match(/for\s+([A-Za-z0-9_.\s]+?)(?:\s+celebrating|\s+with|\s*$)/i);
+  if (compMatch) {
+    displayCompany = compMatch[1].trim();
+  }
+
+  // Clean loading card
+  removeEmptyFeedPlaceholder();
+  const loading = document.createElement("div");
+  loading.className = "loading-card";
+  loading.innerHTML = `
+    <div class="spinner"></div>
+    <div class="loading-text">Crafting ${displayCompany} Merch…</div>
+    <div class="loading-subtext">Searching live updates & generating photorealistic mockup with Nano Banana 2 Lite</div>
+  `;
+  feed.prepend(loading);
+  loading.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  craftBtn.disabled = true;
+
+  try {
+    const res = await fetch("/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message: prompt, session_id: currentSessionId })
+    });
+
+    if (!res.ok) {
+      throw new Error(`Server returned HTTP ${res.status}`);
+    }
+
+    const data = await res.json();
+    if (data.session_id) currentSessionId = data.session_id;
+
+    loading.remove();
+
+    const parts = data.parts || [];
+    const textErrors = parts.filter(p => p && p.kind === "text" && p.text && p.text.startsWith("Error"));
+    if (textErrors.length > 0) {
+      showToast(textErrors[0].text, 4000);
+      return;
+    }
+
+    const a2uiMsgs = parts.filter(p => p && p.kind === "a2ui" && p.data).map(p => p.data);
+    const parsed = parseA2UI(a2uiMsgs);
+
+    if (parsed.imageUrl || parsed.title) {
+      const brandInfo = resolveBrand(company, parsed.tagline);
+      const cardTitle = parsed.title || `${company} Merch`;
+      const cleanMilestone = (parsed.tagline || "").replace(/^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})\s*[·•-]?\s*/, "").trim();
+
+      renderCard({
+        company,
+        cardTitle,
+        cleanMilestone,
+        description: parsed.description,
+        imageUrl: parsed.imageUrl,
+        brandColor: brandInfo.color,
+        itemCategory: selectedCategory
+      }, true);
+    } else {
+      showToast("Design crafted, but no preview returned. Try regenerating.", 3000);
+    }
+  } catch (err) {
+    loading.remove();
+    // Do not show error if user reloaded the page or request was aborted
+    if (isUnloading || err.name === "AbortError") {
+      return;
+    }
+    const msg = err.message === "Failed to fetch"
+      ? "Unable to reach server. Please ensure the backend server is running on port 8501."
+      : err.message;
+    showToast("Error crafting swag: " + msg, 4000);
+  } finally {
+    craftBtn.disabled = false;
+    checkEmptyFeed();
+  }
+}
+
+function renderCard({ company, cardTitle, cleanMilestone, description, imageUrl, brandColor, itemCategory }, prepend = true) {
+  removeEmptyFeedPlaceholder();
+  const card = document.createElement("div");
+  card.className = "showcase-card";
+  card.innerHTML = `
+    <div class="showcase-media">
+      ${imageUrl ? `<img class="showcase-img" src="${imageUrl}" alt="${cardTitle}">` : ''}
+      <div class="showcase-overlay">
+        <div class="showcase-info">
+          <h2 class="showcase-title">${cardTitle}</h2>
+          ${cleanMilestone ? `
+            <div class="showcase-milestone-pill" style="border-color: ${brandColor}44; background: ${brandColor}22;">
+              <span class="milestone-sparkle" style="color: ${brandColor};">✦</span>
+              <span class="milestone-text">${cleanMilestone}</span>
+            </div>
+          ` : ''}
+        </div>
+
+        <!-- Left Aligned Clean Actions Bar -->
+        <div class="showcase-actions">
+          <button class="action-btn" onclick="sendToBoss('${cardTitle.replace(/'/g, "\\'")}', '${imageUrl}')" title="Send proposal to boss">
+            <span class="material-symbols-outlined">send</span>
+            <span>Send to boss</span>
+          </button>
+
+          <button class="action-btn" onclick="downloadImage('${imageUrl}', '${company.replace(/'/g, "\\'")}_${cardTitle.replace(/'/g, "\\'")}')" title="Download image">
+            <span class="material-symbols-outlined">download</span>
+            <span>Download</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+  if (prepend) {
+    feed.prepend(card);
+    feed.scrollTo({ left: 0, behavior: 'smooth' });
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } else {
+    feed.appendChild(card);
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  return card;
+}
+
+function removeEmptyFeedPlaceholder() {
+  const p = document.getElementById("emptyFeedPlaceholder");
+  if (p) p.remove();
+}
+
+function checkEmptyFeed() {
+  const hasItems = feed.querySelector(".showcase-card, .loading-card");
+  if (!hasItems) {
+    if (!document.getElementById("emptyFeedPlaceholder")) {
+      const p = document.createElement("div");
+      p.id = "emptyFeedPlaceholder";
+      p.className = "empty-feed-placeholder";
+      p.innerHTML = `
+        <div class="empty-feed-icon">
+          <span class="material-symbols-outlined">auto_awesome</span>
+        </div>
+        <div class="empty-feed-title">No merchandise crafted yet</div>
+        <div class="empty-feed-sub">Enter any company name above and click "Craft Swag" to generate your first bespoke concept.</div>
+      `;
+      feed.appendChild(p);
+    }
+  } else {
+    removeEmptyFeedPlaceholder();
+  }
+}
+
+function scrollFeed(dir) {
+  feed.scrollBy({ left: dir * 400, behavior: 'smooth' });
+}
+
+// Mouse wheel horizontal scrolling on feed
+feed.addEventListener("wheel", (e) => {
+  if (e.deltaY !== 0 && feed.scrollWidth > feed.clientWidth) {
+    e.preventDefault();
+    feed.scrollLeft += e.deltaY;
+  }
+}, { passive: false });
+
+// Initialize empty feed state (no dummy cards)
+checkEmptyFeed();
+
+companyInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") handleGenerate();
+});
+companyInput.addEventListener("focus", () => {
+  companyInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+});
+</script>
+</body>
+</html>
